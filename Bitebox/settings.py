@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-=_6&ewuq_$eoa%h7i62@&lc02szs9y^p)k3--(=0+gwc_$21#c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "bitebox-production-e6ae.up.railway.app",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
