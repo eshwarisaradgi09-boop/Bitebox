@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ restaurant.name }} | BiteBox</title>
+
+    <link rel="stylesheet" href="{% static 'delivery/customer_menu.css' %}">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍔 BiteBox
+    </div>
+
+    <div class="nav-links">
+
+        <span class="welcome">
+            Hi, {{ username }} 👋
+        </span>
+
+        <a href="{% url 'show_cart' username %}">
+            🛒 Cart
+        </a>
+
+        <a href="{% url 'index' %}">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- ================= RESTAURANT BANNER ================= -->
+
+<section class="restaurant-banner">
+
+    <img src="{{ restaurant.picture }}" alt="{{ restaurant.name }}">
+
+    <div class="banner-content">
+
+        <h1>{{ restaurant.name }}</h1>
+
+        <p>{{ restaurant.cuisine }}</p>
+
+        <div class="banner-details">
+
+            <span class="rating">
+                ⭐ {{ restaurant.rating }}
+            </span>
+
+            <span>
+                🚴 25-30 mins
+            </span>
+
+            <span>
+                🍽 Pure Taste
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+    <input
+        type="text"
+        placeholder="🔍 Search your favourite food">
+
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+<button>🍕 Pizza</button>
+
+<button>🍔 Burger</button>
+
+<button>🥗 Veg</button>
+
+<button>🍜 Chinese</button>
+
+<button>🍟 Snacks</button>
+
+<button>🍰 Dessert</button>
+
+<button>🥤 Drinks</button>
+
+</section>
+
+<!-- ================= MENU ================= -->
+
+<section class="menu-container">
+
+{% for item in itemList %}
+
+<div class="food-card">
+
+    <div class="food-image">
+
+        <img src="{{ item.picture }}" alt="{{ item.name }}">
+
+    </div>
+
+    <div class="food-content">
+
+        <div class="top">
+
+            <div>
+
+                <h2>{{ item.name }}</h2>
+
+                <p>{{ item.description }}</p>
+
+            </div>
+
+            {% if item.vegeterian %}
+                <span class="veg">
+                    🟢 Veg
+                </span>
+            {% else %}
+                <span class="nonveg">
+                    🔴 Non Veg
+                </span>
+            {% endif %}
+
+        </div>
+
+        <div class="bottom">
+
+            <div>
+
+                <h3>₹{{ item.price }}</h3>
+
+                <small>
+                    ⭐ Best Seller
+                </small>
+
+            </div>
+
+            <a href="{% url 'add_to_cart' item.id username %}"
+               class="add-btn">
+
+                + ADD
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="empty">
+
+    <h2>No Food Available</h2>
+
+    <p>Please check again later.</p>
+
+</div>
+
+{% endfor %}
+
+</section>
+
+<!-- ================= FLOATING CART ================= -->
+
+<a href="{% url 'show_cart' username %}" class="floating-cart">
+
+🛒
+
+</a>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>🍔 BiteBox</h2>
+
+    <p>Fast • Fresh • Delicious</p>
+
+    <p>Made with ❤️ using Django</p>
+
+</footer>
+
+</body>
+</html>

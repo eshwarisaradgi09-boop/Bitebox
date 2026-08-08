@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart | BiteBox</title>
+
+    <link rel="stylesheet" href="{% static 'delivery/cart.css' %}">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍔 BiteBox
+    </div>
+
+    <div class="nav-links">
+
+        <span>Hi, {{username}} 👋</span>
+
+        <a href="javascript:history.back()">⬅ Back</a>
+
+    </div>
+
+</nav>
+
+<!-- ================= TITLE ================= -->
+
+<section class="heading">
+
+    <h1>🛒 My Cart</h1>
+
+    <p>Your delicious food is waiting...</p>
+
+</section>
+
+<!-- ================= CART ITEMS ================= -->
+
+<section class="cart-container">
+
+{% if itemList %}
+
+{% for item in itemList %}
+
+<div class="cart-card">
+
+    <img src="{{item.picture}}" alt="{{item.name}}">
+
+    <div class="cart-info">
+
+        <h2>{{item.name}}</h2>
+
+        <p>{{item.description}}</p>
+
+        {% if item.vegeterian %}
+            <span class="veg">🟢 Veg</span>
+        {% else %}
+            <span class="nonveg">🔴 Non Veg</span>
+        {% endif %}
+
+    </div>
+
+    <div class="price-box">
+
+        <h2>₹{{item.price}}</h2>
+
+        <div class="quantity">
+
+            <button>-</button>
+
+            <span>1</span>
+
+            <button>+</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty-cart">
+
+    <h2>🛒 Your Cart is Empty</h2>
+
+    <p>Add some delicious food to continue.</p>
+
+    <a href="javascript:history.back()">
+        Browse Restaurants
+    </a>
+
+</div>
+
+{% endif %}
+
+</section>
+
+<!-- ================= ORDER SUMMARY ================= -->
+
+{% if itemList %}
+
+<section class="summary">
+
+    <div class="summary-card">
+
+        <h2>Order Summary</h2>
+
+        <hr>
+
+        <div class="row">
+
+            <span>Items Total</span>
+
+            <span>₹{{total_price}}</span>
+
+        </div>
+
+        <div class="row">
+
+            <span>Delivery Fee</span>
+
+            <span style="color:green;">FREE</span>
+
+        </div>
+
+        <div class="row">
+
+            <span>Platform Fee</span>
+
+            <span>₹10</span>
+
+        </div>
+
+        <hr>
+
+        <div class="total">
+
+            <h2>Total</h2>
+
+            <h2>₹{{total_price}}</h2>
+
+        </div>
+
+        <a href="{% url 'checkout' username %}" class="checkout-btn">
+
+            Proceed to Checkout →
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>🍔 BiteBox</h2>
+
+    <p>Fast • Fresh • Delicious</p>
+
+</footer>
+
+</body>
+</html>

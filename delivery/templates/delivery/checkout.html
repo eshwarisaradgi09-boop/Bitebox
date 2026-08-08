@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | BiteBox</title>
+
+    <link rel="stylesheet" href="{% static 'delivery/checkout.css' %}">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍔 BiteBox
+    </div>
+
+    <div class="nav-links">
+
+        <span>Hi {{username}} 👋</span>
+
+        <a href="{% url 'show_cart' username %}">
+            ← Back to Cart
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+<div class="left">
+
+<div class="card">
+
+<h2>📍 Delivery Address</h2>
+
+<p>Home Address</p>
+
+<p>Kalaburagi, Karnataka</p>
+
+</div>
+
+<div class="card">
+
+<h2>🛒 Your Items</h2>
+
+{% for item in cart_items %}
+
+<div class="item">
+
+<div>
+
+<h3>{{item.name}}</h3>
+
+<p>{{item.description}}</p>
+
+</div>
+
+<h3>₹{{item.price}}</h3>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="summary">
+
+<h2>Order Summary</h2>
+
+<div class="row">
+
+<span>Items Total</span>
+
+<span>₹{{total_price}}</span>
+
+</div>
+
+<div class="row">
+
+<span>Delivery Fee</span>
+
+<span style="color:green;">FREE</span>
+
+</div>
+
+<div class="row">
+
+<span>Platform Fee</span>
+
+<span>₹10</span>
+
+</div>
+
+<hr>
+
+<div class="total">
+
+<h2>Total</h2>
+
+<h2>₹{{total_price}}</h2>
+
+</div>
+
+<button id="rzp-button">
+
+💳 Pay with Razorpay
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+var options = {
+
+"key":"{{ razorpay_key_id }}",
+
+"amount":"{{ total_price|floatformat:2|add:'0.00'|floatformat:2 }}00",
+
+"currency":"INR",
+
+"name":"BiteBox",
+
+"description":"Food Order",
+
+"order_id":"{{ order_id }}",
+
+"handler":function(response){
+
+alert("Payment Successful 🎉");
+
+window.location.href="/orders/{{username}}/";
+
+},
+
+"prefill":{
+
+"name":"{{username}}",
+
+"email":"customer@example.com",
+
+"contact":"9999999999"
+
+},
+
+"theme":{
+
+"color":"#ff6b35"
+
+}
+
+};
+
+var rzp=new Razorpay(options);
+
+document.getElementById('rzp-button').onclick=function(e){
+
+rzp.open();
+
+e.preventDefault();
+
+}
+
+</script>
+
+</body>
+</html>

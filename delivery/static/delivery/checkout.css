@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:34px;
+font-weight:700;
+color:#ff6b35;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.nav-links span{
+font-weight:600;
+color:#444;
+}
+
+.nav-links a{
+text-decoration:none;
+background:#ff6b35;
+color:white;
+padding:10px 20px;
+border-radius:30px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+background:#ff884d;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+width:90%;
+max-width:1300px;
+margin:40px auto;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:35px;
+}
+
+/* ================= LEFT ================= */
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.card h2{
+color:#ff6b35;
+margin-bottom:20px;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+border-bottom:1px solid #eee;
+}
+
+.item:last-child{
+border-bottom:none;
+}
+
+.item h3{
+color:#333;
+margin-bottom:5px;
+}
+
+.item p{
+color:#777;
+font-size:14px;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+position:sticky;
+top:100px;
+}
+
+.summary h2{
+margin-bottom:25px;
+color:#333;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+color:#555;
+}
+
+.summary hr{
+margin:20px 0;
+border:none;
+border-top:1px solid #ddd;
+}
+
+.total{
+display:flex;
+justify-content:space-between;
+font-size:22px;
+font-weight:700;
+margin-bottom:30px;
+color:#333;
+}
+
+#rzp-button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:40px;
+background:#ff6b35;
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+#rzp-button:hover{
+background:#ff884d;
+transform:translateY(-3px);
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+display:flex;
+justify-content:space-around;
+margin-top:30px;
+text-align:center;
+color:#777;
+font-size:15px;
+}
+
+.features div{
+padding:10px;
+}
+
+/* ================= SUCCESS ================= */
+
+.success{
+background:#d4edda;
+color:#155724;
+padding:15px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+/* ================= ERROR ================= */
+
+.error{
+background:#ffe5e5;
+color:#b00020;
+padding:15px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.container{
+grid-template-columns:1fr;
+}
+
+.summary{
+position:static;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.logo{
+font-size:28px;
+}
+
+}

@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    color:#ff6b35;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.welcome{
+    color:#555;
+    font-weight:600;
+}
+
+.nav-links a{
+    text-decoration:none;
+    background:#ff6b35;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    background:#ff884d;
+}
+
+/* ================= BANNER ================= */
+
+.restaurant-banner{
+    width:90%;
+    margin:30px auto;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+}
+
+.restaurant-banner img{
+    width:380px;
+    height:280px;
+    object-fit:cover;
+}
+
+.banner-content{
+    padding:40px;
+    flex:1;
+}
+
+.banner-content h1{
+    font-size:42px;
+    color:#333;
+    margin-bottom:10px;
+}
+
+.banner-content p{
+    font-size:18px;
+    color:#777;
+    margin-bottom:20px;
+}
+
+.banner-details{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.banner-details span{
+    background:#f8f8f8;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+}
+
+.rating{
+    background:#1db954 !important;
+    color:white;
+}
+
+/* ================= SEARCH ================= */
+
+.search-section{
+    width:90%;
+    margin:auto;
+}
+
+.search-section input{
+    width:100%;
+    padding:16px 20px;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.search-section input:focus{
+    outline:none;
+}
+
+/* ================= CATEGORY ================= */
+
+.categories{
+    width:90%;
+    margin:30px auto;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.categories button{
+    border:none;
+    background:white;
+    padding:12px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+    transition:.3s;
+    font-size:15px;
+}
+
+.categories button:hover{
+    background:#ff6b35;
+    color:white;
+    transform:translateY(-3px);
+}
+
+/* ================= FOOD ================= */
+
+.menu-container{
+    width:90%;
+    margin:40px auto;
+}
+
+.food-card{
+    display:flex;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-5px);
+}
+
+.food-image{
+    width:260px;
+}
+
+.food-image img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.food-content{
+    flex:1;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.food-content h2{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.food-content p{
+    color:#666;
+    line-height:25px;
+}
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+}
+
+.bottom h3{
+    color:#ff6b35;
+    font-size:28px;
+}
+
+.bottom small{
+    color:#999;
+}
+
+.add-btn{
+    text-decoration:none;
+    background:#1db954;
+    color:white;
+    padding:14px 30px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    background:#159647;
+    transform:scale(1.05);
+}
+
+.veg{
+    color:#159647;
+    font-weight:700;
+}
+
+.nonveg{
+    color:#d63031;
+    font-weight:700;
+}
+
+/* ================= EMPTY ================= */
+
+.empty{
+    text-align:center;
+    background:white;
+    padding:60px;
+    border-radius:20px;
+}
+
+/* ================= FLOAT CART ================= */
+
+.floating-cart{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:70px;
+    height:70px;
+    background:#ff6b35;
+    color:white;
+    text-decoration:none;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:.3s;
+}
+
+.floating-cart:hover{
+    transform:scale(1.1);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:40px;
+    margin-top:50px;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    margin-top:8px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.restaurant-banner{
+    flex-direction:column;
+}
+
+.restaurant-banner img{
+    width:100%;
+}
+
+.food-card{
+    flex-direction:column;
+}
+
+.food-image{
+    width:100%;
+}
+
+.top{
+    flex-direction:column;
+}
+
+.bottom{
+    flex-direction:column;
+    gap:15px;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.banner-content h1{
+    font-size:30px;
+}
+
+}

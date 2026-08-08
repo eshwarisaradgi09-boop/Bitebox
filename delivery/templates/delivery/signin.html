@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In | BiteBox</title>
+
+    <link rel="stylesheet" href="{% static 'delivery/styletheme.css' %}">
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>🍔 BiteBox</h1>
+
+        <h2>Welcome Back!</h2>
+
+        <p class="sub-title">
+            Login to continue ordering your favourite food.
+        </p>
+
+        <form action="{% url 'signin' %}" method="post">
+            {% csrf_token %}
+
+            <input type="text"
+                   name="username"
+                   placeholder="Username"
+                   required>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
+
+            <button type="submit">
+                Sign In
+            </button>
+
+        </form>
+
+        <p class="bottom-text">
+            Don't have an account?
+
+            <a href="open_signup">
+                Create Account
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

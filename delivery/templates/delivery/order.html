@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful | BiteBox</title>
+
+    <link rel="stylesheet" href="{% static 'delivery/orders.css' %}">
+</head>
+<body>
+
+<div class="success-container">
+
+    <div class="success-card">
+
+        <div class="tick">
+            ✓
+        </div>
+
+        <h1>Order Placed Successfully!</h1>
+
+        <p>
+            Thank you <b>{{username}}</b> ❤️
+        </p>
+
+        <p>
+            Your delicious food is being prepared.
+        </p>
+
+        <div class="delivery-box">
+
+            <h3>Estimated Delivery</h3>
+
+            <h2>25 - 30 Minutes 🚴</h2>
+
+        </div>
+
+        <div class="bill">
+
+            <h2>Order Summary</h2>
+
+            <hr>
+
+            {% for item in cart_items %}
+
+            <div class="row">
+
+                <span>{{item.name}}</span>
+
+                <span>₹{{item.price}}</span>
+
+            </div>
+
+            {% endfor %}
+
+            <hr>
+
+            <div class="total">
+
+                <h2>Total Paid</h2>
+
+                <h2>₹{{total_price}}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="{% url 'index' %}">
+                Home
+            </a>
+
+            <a href="{% url 'show_cart' username %}">
+                View Cart
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
